@@ -225,7 +225,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -255,7 +255,7 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -438,14 +438,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 
 <span class="c1"># Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># because &quot;passed&quot; is not a feature but the target column</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="c1"># Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
@@ -454,7 +454,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">n_students</span> <span class="o">-</span> <span class="n">n_passed</span>
 
 <span class="c1"># Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="n">n_students</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n_students</span> <span class="c1"># 1.0 to get a floating point number as result</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -475,10 +475,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 30
+Number of features: 31
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.09%
+Graduation rate of the class: 0.67%
 </pre>
 </div>
 </div>
@@ -501,7 +501,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -583,7 +583,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -654,7 +654,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import any additional functionality you may need here</span>
@@ -736,43 +736,43 @@ Testing set has 95 samples.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<h3 id="Decision-Trees">Decision Trees<a class="anchor-link" href="#Decision-Trees">&#182;</a></h3><h4 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h4><p>Used e.g. for detection of physical particles (see DAVID BOWSER-CHAO AND DEBRA L. DZIALO. Comparison of the use of binary decision trees and neural networks in top quark detection. Physical Review D: Particles and Fields, 47(5):1900, March 1993.)</p>
-<h4 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h4><ul>
+<h1 id="Decision-Trees">Decision Trees<a class="anchor-link" href="#Decision-Trees">&#182;</a></h1><h3 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h3><p>Used e.g. for detection of physical particles (see DAVID BOWSER-CHAO AND DEBRA L. DZIALO. Comparison of the use of binary decision trees and neural networks in top quark detection. Physical Review D: Particles and Fields, 47(5):1900, March 1993.)</p>
+<h3 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h3><ul>
 <li>good with data that can't be separated with a single linear line</li>
 <li>implicitly performs feature selection (most important features are nodes at top of the tree)</li>
 <li>requires relatively little preparation / exploration of data</li>
 <li>tree-representation is also a good visualization for us humans =&gt; easy to interpret and explain!</li>
 </ul>
-<h4 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h4><ul>
+<h3 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h3><ul>
 <li>can have high complexity, leading to overfitting</li>
 <li>can't model complex relationships among data (only 2 choices at each node)</li>
 <li>bad at regression problems (because of the Restriction Bias: we can only consider hypotheses that decision trees can represent)</li>
 </ul>
-<h4 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h4><p>As we have a lot of features and a classification problem, a decision tree is a good option for a kick-start. It won't require a lot of exploration and preparation of our data, as the decision tree will implicitely select the most important features (= the ones with the highest information gain).</p>
-<h3 id="Naive-Bayes">Naive Bayes<a class="anchor-link" href="#Naive-Bayes">&#182;</a></h3><h4 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h4><p>As shown in the course itself, Naive Bayes can help to determine whether an e-mail is spam or not.</p>
+<h3 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h3><p>As we have a lot of features and a classification problem, a decision tree is a good option for a kick-start. It won't require a lot of exploration and preparation of our data, as the decision tree will implicitely select the most important features (= the ones with the highest information gain).</p>
+<h1 id="Naive-Bayes">Naive Bayes<a class="anchor-link" href="#Naive-Bayes">&#182;</a></h1><h3 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h3><p>As shown in the course itself, Naive Bayes can help to determine whether an e-mail is spam or not.</p>
 <p>It is also used in recommendation systems à la Netflix or Amazon, or tagging photos as Facebook does it (according to Sebastian Thrun in the course).</p>
-<h4 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h4><ul>
+<h3 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h3><ul>
 <li>tries to find the best / most likely hypotheses, which minimizes error &amp; size of hypotheses -&gt; prevents overfitting</li>
 <li>good performance (fast to train and classify) and space efficient</li>
 <li>not sensitive to irrelevant feature, as their probabilities even out</li>
 </ul>
-<h4 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h4><ul>
+<h3 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h3><ul>
 <li>as probabilities are dependent on evidences, Naive Bayes is not suitable for small datasets</li>
 <li>we're only taking occurrences of evidence into account, not order</li>
 <li>assumes independence of features </li>
 </ul>
-<h4 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h4><p>Especially because it's not sensitive to irrelevant features makes it a good choice for our data. We have a lot of features and most of them are very likely to not have an significant impact on whether a student passes or not. Naive Bayes wants to find the most likely hypotheses to our problem, which is exactly what we want.</p>
-<h3 id="AdaBoost">AdaBoost<a class="anchor-link" href="#AdaBoost">&#182;</a></h3><h4 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h4><p>It is e.g. used in the detection of basketball players: <a href="https://uni-obuda.hu/journal/Markoski_Ivankovic_Ratgeber_Pecev_Glusac_57.pdf">https://uni-obuda.hu/journal/Markoski_Ivankovic_Ratgeber_Pecev_Glusac_57.pdf</a></p>
-<h4 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h4><ul>
+<h3 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h3><p>Especially because it's not sensitive to irrelevant features makes it a good choice for our data. We have a lot of features and most of them are very likely to not have an significant impact on whether a student passes or not. Naive Bayes wants to find the most likely hypotheses to our problem, which is exactly what we want.</p>
+<h1 id="AdaBoost">AdaBoost<a class="anchor-link" href="#AdaBoost">&#182;</a></h1><h3 id="Real-World-Application">Real-World Application<a class="anchor-link" href="#Real-World-Application">&#182;</a></h3><p>It is e.g. used in the detection of basketball players: <a href="https://uni-obuda.hu/journal/Markoski_Ivankovic_Ratgeber_Pecev_Glusac_57.pdf">https://uni-obuda.hu/journal/Markoski_Ivankovic_Ratgeber_Pecev_Glusac_57.pdf</a></p>
+<h3 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h3><ul>
 <li>uses weak classifiers to make a strong classifier</li>
 <li>works well already out of the box</li>
 <li>usable with a lot of different classifiers</li>
 <li>overfitting isn't a big problem</li>
 </ul>
-<h4 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h4><ul>
+<h3 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h3><ul>
 <li>sensitive to noisy data and outliers</li>
 </ul>
-<h4 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h4><p>AdaBoost is generally great for almost all classification problems. So it won't disappoint for our problem.</p>
+<h3 id="Why-is-it-good-for-our-problem?">Why is it good for our problem?<a class="anchor-link" href="#Why-is-it-good-for-our-problem?">&#182;</a></h3><p>AdaBoost is generally great for almost all classification problems. So it won't disappoint for our problem.</p>
 <p>Our data has a lot of different features (= evidence) and there might be a lot of different factors significant to our problem (= finding the reason why students don't pass). A lone decision tree only looks at a few significant attributes (the ones at the top), and Boosting allows us to essentially combine more evidence before making our final prediction.</p>
 <p>If it would be an option, a Neural Network would also be something I'd consider, as it haves similarly as Boosting.</p>
 
@@ -799,7 +799,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -872,7 +872,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the three supervised learning models from sklearn</span>
@@ -940,24 +940,24 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0010 seconds
+Trained model in 0.0020 seconds
 Made predictions in 0.0000 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.6552.
 -
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0010 seconds
+Trained model in 0.0020 seconds
 Made predictions in 0.0000 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0000 seconds.
+Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7500.
 -
 Training a DecisionTreeClassifier using a training set size of 300. . .
 Trained model in 0.0020 seconds
 Made predictions in 0.0000 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0000 seconds.
+Made predictions in 0.0010 seconds.
 F1 score for test set: 0.6613.
 # # # #
 Training a GaussianNB using a training set size of 100. . .
@@ -968,38 +968,38 @@ Made predictions in 0.0000 seconds.
 F1 score for test set: 0.8029.
 -
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0000 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0010 seconds
+Made predictions in 0.0000 seconds.
 F1 score for training set: 0.8406.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7244.
 -
 Training a GaussianNB using a training set size of 300. . .
 Trained model in 0.0010 seconds
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0000 seconds.
 F1 score for training set: 0.8038.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7634.
 # # # #
 Training a AdaBoostClassifier using a training set size of 100. . .
-Trained model in 0.1370 seconds
-Made predictions in 0.0050 seconds.
+Trained model in 0.1020 seconds
+Made predictions in 0.0040 seconds.
 F1 score for training set: 0.9481.
 Made predictions in 0.0040 seconds.
 F1 score for test set: 0.7669.
 -
 Training a AdaBoostClassifier using a training set size of 200. . .
-Trained model in 0.1330 seconds
+Trained model in 0.1090 seconds
 Made predictions in 0.0050 seconds.
 F1 score for training set: 0.8927.
-Made predictions in 0.0080 seconds.
+Made predictions in 0.0040 seconds.
 F1 score for test set: 0.8281.
 -
 Training a AdaBoostClassifier using a training set size of 300. . .
-Trained model in 0.1350 seconds
-Made predictions in 0.0060 seconds.
+Trained model in 0.1090 seconds
+Made predictions in 0.0050 seconds.
 F1 score for training set: 0.8637.
-Made predictions in 0.0040 seconds.
+Made predictions in 0.0050 seconds.
 F1 score for test set: 0.7820.
 # # # #
 </pre>
@@ -1177,8 +1177,7 @@ F1 score for test set: 0.7820.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> With Naive Bayes, for new incoming student-data we're calculating the probability of that student to either pass or fail, by combining all probabilities of all the features. If the probability for "passing" is higher, than the new student will be classified as passing, otherwise as failing. To calculate the probability whether the new student passes or fails, we first need to feed our training data to our model, so that it learns how to classify new incoming student-data.</p>
-<p>Using our training data we can pre-compute a lot of prior probabilities. E.g. if in our training data 90% of students with a family size of 3 or less do pass, than it is more likely for new students who also have a family size of 3 or less to pass. So the learning algorithm will look at all of those known features in the learning data, and calculate probabilities for all possible values. E.g. it will look at the address and calculate the probability of passing or failing for both rural and urban values.</p>
+<p><strong>Answer: </strong> Our chosen model Naive Bayes is going to create the model that most likely predicts whether a student passes or not. Based on our existing data, the model will calculate probabilities for each feature, that will then be used to determine if a student is likely to pass or not.</p>
 
 </div>
 </div>
@@ -1209,14 +1208,14 @@ F1 score for test set: 0.7820.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 
-<span class="c1"># Create the parameters list you wish to tune</span>
+<span class="c1"># TODO: Create the parameters list you wish to tune</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> 
     <span class="s1">&#39;criterion&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">),</span> 
@@ -1239,32 +1238,14 @@ F1 score for test set: 0.7820.
 <span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
 
 <span class="c1"># Report the final F1 score for training and testing after parameter tuning</span>
-<span class="k">print</span> <span class="s2">&quot;original Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">&quot;original Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">&quot;original Tuned model parameters {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid_obj</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="k">print</span> <span class="s2">&quot;Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 
-<span class="c1">###</span>
-<span class="c1"># STUDENT NOTE:</span>
-<span class="c1">###</span>
-<span class="c1"># I found that using fewer and certain parameters will output a better training and test result</span>
-<span class="c1"># QUESTION: should I use the model with lower test score found using more parameters?</span>
-<span class="c1"># OR should I use the following model with higher test score found using only certain parameters?</span>
-<span class="c1"># I&#39;m a little confused, as I thought that GridSearchCV will find the best param combination from all given parameters?</span>
-
-<span class="n">better_parameters</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">64</span><span class="p">)</span> <span class="p">}</span>
-
-<span class="n">clf</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">better_parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
-
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
-
+<span class="c1"># Added by student: QUESTION: why is .best_estimator_ not returning the one with the best_score_?</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;BETTER Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">&quot;BETTER Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="k">print</span> <span class="s2">&quot;BETTER Tuned model parameters {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid_obj</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;!! !! Actual best score calculated by Grid Search: {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid_obj</span><span class="o">.</span><span class="n">best_score_</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Chosen classifier: &quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1278,16 +1259,17 @@ F1 score for test set: 0.7820.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Made predictions in 0.0000 seconds.
-original Tuned model has a training F1 score of 0.8119.
+Tuned model has a training F1 score of 0.8119.
 Made predictions in 0.0000 seconds.
-original Tuned model has a testing F1 score of 0.7742.
-original Tuned model parameters {&apos;max_features&apos;: &apos;auto&apos;, &apos;criterion&apos;: &apos;gini&apos;, &apos;max_depth&apos;: 1}
+Tuned model has a testing F1 score of 0.7742.
 
-Made predictions in 0.0010 seconds.
-BETTER Tuned model has a training F1 score of 0.8354.
-Made predictions in 0.0000 seconds.
-BETTER Tuned model has a testing F1 score of 0.8000.
-BETTER Tuned model parameters {&apos;max_depth&apos;: 2}
+!! !! Actual best score calculated by Grid Search: 0.8119.
+Chosen classifier: 
+DecisionTreeClassifier(class_weight=None, criterion=&apos;gini&apos;, max_depth=1,
+            max_features=&apos;auto&apos;, max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            presort=False, random_state=42, splitter=&apos;best&apos;)
 </pre>
 </div>
 </div>

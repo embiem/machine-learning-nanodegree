@@ -1177,8 +1177,8 @@ F1 score for test set: 0.7820.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> With Naive Bayes, for new incoming student-data we're calculating the probability of that student to either pass or fail, by combining all probabilities of all the features. If the probability for "passing" is higher, than the new student will be classified as passing, otherwise as failing. To calculate the probability whether the new student passes or fails, we first need to feed our training data to our model, so that it learns how to classify new incoming student-data.</p>
-<p>Using our training data we can pre-compute a lot of prior probabilities. E.g. if in our training data 90% of students with a family size of 3 or less do pass, than it is more likely for new students who also have a family size of 3 or less to pass. So the learning algorithm will look at all of those known features in the learning data, and calculate probabilities for all possible values. E.g. it will look at the address and calculate the probability of passing or failing for both rural and urban values.</p>
+<p><strong>Answer: </strong> During the initial training Naive Bayes will calculate a prior probability of potential new inputs to generally define which target labels are more likely than others. E.g. if we have 20 oranges and 10 pears in our training data, it is twice as likely for new data to be labelled as orange.</p>
+<p>When actual new data comes in, this prior probability is combined with a probability that is calculated by looking at the features of the new data. This second probability basically describes the individual likelihood of a new input to, when coming back to our example, be either an orange or a pear. The general prior probability and this individual probability are now combined using the fancy Bayes' Rule to calculate the posterior probability for the new input to belong to any of the target labels. The highest probability wins and we classify our new incoming data accordingly.</p>
 
 </div>
 </div>
