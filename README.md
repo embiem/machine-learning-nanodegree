@@ -1,3 +1,5 @@
+This is a fork of the original repo here: https://github.com/udacity/machine-learning
+
 # machine-learning
 Content for Udacity's Machine Learning curriculum, which includes projects and their descriptions.
 
