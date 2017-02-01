@@ -50,7 +50,7 @@ class LearningAgent(Agent):
         #self.epsilon = math.cos(self.alpha * self.t) # Ratings: D A+
 
         # Update additional class parameters as needed
-        self.learning = not testing
+        #self.learning = not testing
 
         # If 'testing' is True, set epsilon and alpha to 0
         if testing:
@@ -88,14 +88,30 @@ class LearningAgent(Agent):
         ###########
         # Calculate the maximum Q-value of all actions for a given state
         maxQ = -10000.0
-        maxQ_action = self.valid_actions[0]
+        #maxQ_action = self.valid_actions[0]
 
         for action in self.Q[state].keys():
             if self.Q[state][action] > maxQ:
                 maxQ = self.Q[state][action]
-                maxQ_action = action
+                #maxQ_action = action
 
-        return maxQ_action
+        return maxQ #maxQ_action
+
+
+    def get_maxQ_action(self, state):
+        """ Get the action with the highest Q value, or if multiple maxQs: get
+            a random action from the list of maxQs """
+
+        maxQ = self.get_maxQ(state)
+        maxQ_actions = []
+
+        # add all actions with maxQ to actions-list
+        for action in self.Q[state].keys():
+            if self.Q[state][action] == maxQ:
+                maxQ_actions.append(action)
+
+        # randomly choose one of the maxQ actions
+        return maxQ_actions[random.randint(0, len(maxQ_actions) - 1)]
 
 
     def createQ(self, state):
@@ -127,27 +143,18 @@ class LearningAgent(Agent):
         ###########
         ## TO DO ##
         ###########
-        # When learning, choose a random action with 'epsilon' probability
-        if (self.learning and random.random() <= self.epsilon) or not(state in self.Q):
+
+        # When not learning, choose a random action
+        if not self.learning:
             action = self.valid_actions[random.randint(0, len(self.valid_actions) - 1)]
-
-            if not self.learning:
-                self.count_unlearned += 1
-
+        # When learning,
         else:
+            # choose a random action with 'epsilon' probability
+            if random.random() <= self.epsilon:
+                action = self.valid_actions[random.randint(0, len(self.valid_actions) - 1)]
             # Otherwise, choose an action with the highest Q-value for the current state
-            action = self.get_maxQ(state)
-
-        # this is how it would be hard-coded for A & A+ ratings
-        #action = None
-        #if state[1] == 'green':
-        #    if state[0] == 'left':
-        #        if state[2] == 'left' or state[2] == None:
-        #            action = state[0]
-        #
-        #    else:
-        #        action = state[0]
-
+            else:
+                action = self.get_maxQ_action(state)
 
         return action
 
@@ -168,7 +175,7 @@ class LearningAgent(Agent):
             reward -= self.reliability_mod
 
         if self.learning:
-            self.Q[state][action] += (reward * self.alpha)
+            self.Q[state][action] += (self.alpha * (reward - self.Q[state][action]))
 
         return
 
@@ -205,7 +212,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True, alpha=0.2)
+    agent = env.create_agent(LearningAgent, learning=True, alpha=0.4)
 
     ##############
     # Follow the driving agent
